@@ -10,8 +10,26 @@ const WorkoutSchema = new Schema({
 	// Exercises definition
 	exercises: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: "Exercise",
+			// Defines type attribute
+			type: {type: String},
+
+			// Defines name attribute
+			name: {type: String},
+
+			// Defines duration attribute
+			duration: {type: Number},
+
+			// Defines weight attribute
+			weight: {type: Number},
+
+			// Defines distance attribute
+			distance: {type: Number},
+
+			// Defines reps attribute
+			reps: {type: Number},
+
+			// Defines sets attribute
+			sets: {type: Number}
 		},
 	],
 });
