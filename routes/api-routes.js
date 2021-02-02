@@ -26,10 +26,11 @@ module.exports = function(app) {
             res.status(400).json(err);
         });
     });
-      // Update workouts by _id value and update the exercsise body
+      // Update workouts by _id value and update the exercise body
     app.put("/api/workouts/:id", (req, res) => {
         db.Workout.findByIdAndUpdate(
-            { _id: req.params.id }, { exercises: req.body }
+            { _id: req.params.id }, 
+            { $push: {exercises: req.body }}
         ).then((dbwork) => {
             res.json(dbwork);
         }).catch(err => {
